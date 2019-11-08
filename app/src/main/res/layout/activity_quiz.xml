@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/quizzbg"
+    android:padding="16sp"
+    tools:context=".QuizActivity">
+
+    <TextView
+        android:id="@+id/tvScoreQuiz"
+        android:text="Score: 123"
+        android:textSize="30sp"
+        android:textColor="#fff"
+        android:fontFamily="sans-serif-black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_below="@+id/tvScoreQuiz"
+        android:text="Question: 1/3"
+        android:textSize="30sp"
+        android:textColor="#fff"
+        android:fontFamily="sans-serif-black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_alignParentEnd="true"
+        android:text="00:30"
+        android:textSize="50sp"
+        android:textColor="#fff"
+        android:fontFamily="sans-serif-black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true" />
+
+    <TextView
+        android:id="@+id/tvQuestion"
+        android:text="This is a question that you have to answer for your game"
+        android:layout_width="match_parent"
+        android:textSize="25sp"
+        android:layout_above="@id/radioGroup"
+        android:layout_marginBottom="16sp"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:fontFamily="sans-serif-black"
+        android:layout_height="wrap_content"/>
+
+    <RadioGroup
+        android:layout_centerVertical="true"
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:fontFamily="sans-serif-black"
+            android:textSize="30sp"
+            android:textColor="#fff"
+            android:text="A. Hello this is A"
+            android:id="@+id/radioButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:layout_marginTop="8sp"
+            android:fontFamily="sans-serif-black"
+            android:textSize="30sp"
+            android:textColor="#fff"
+            android:text="A. Hello this is A"
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:layout_marginTop="8sp"
+            android:fontFamily="sans-serif-black"
+            android:textSize="30sp"
+            android:textColor="#fff"
+            android:text="A. Hello this is A"
+            android:id="@+id/radioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:layout_marginTop="8sp"
+            android:fontFamily="sans-serif-black"
+            android:textSize="30sp"
+            android:textColor="#fff"
+            android:text="A. Hello this is A"
+            android:id="@+id/radioButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RadioGroup>
+
+    <Button
+        android:layout_marginTop="30sp"
+        android:text="Confirm"
+        android:layout_below="@id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>
