@@ -1,1 +1,1 @@
-**About the Quiz Game**
+# About the Quiz Game
