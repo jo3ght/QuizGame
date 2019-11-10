@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void openQuiz(View view) {
         startActivity(new Intent(MainActivity.this,Rules.class));
-        //open
+        //open1
     }
 
     public void openAbout(View view) {
