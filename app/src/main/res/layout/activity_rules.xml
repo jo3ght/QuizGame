@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8sp"
+    android:background="@drawable/bgrule"
+    tools:context=".Rules">
+
+
+    <TextView
+        android:id="@+id/tvRules"
+        android:textSize="50sp"
+        android:text="Rules"
+        android:fontFamily="@font/gang"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:layout_marginTop="64sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/layoutRule"
+        android:background="@drawable/pappers"
+        android:padding="32sp"
+        android:layout_below="@+id/tvRules"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="300sp">
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:src="@drawable/fourleaf"
+                android:layout_gravity="center"
+                android:layout_width="90sp"
+                android:layout_height="90sp"/>
+            <TextView
+                android:layout_marginTop="16sp"
+                android:textStyle="bold"
+                android:text="You have 30s to answer each question."
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:layout_marginTop="16sp"
+                android:textStyle="bold"
+                android:text="It will also show the true question after wrong question."
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="16sp"
+                android:textStyle="bold"
+                android:text="These amazing the rules of the game quizzes are perfect for kids, teens, and inquisitive adults too!
+"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:onClick="playQuiz"
+        android:layout_marginTop="32sp"
+        android:layout_below="@+id/layoutRule"
+        android:text="Go"
+        android:textSize="35sp"
+        android:textColor="#fff"
+        android:fontFamily="@font/fonts"
+        android:background="@drawable/wood"
+        android:layout_width="match_parent"
+        android:layout_height="80sp"/>
+
+</RelativeLayout>

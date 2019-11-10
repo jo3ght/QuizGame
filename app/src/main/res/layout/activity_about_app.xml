@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16sp"
+    android:background="@drawable/quizzbg"
+    tools:context=".AboutApp">
+
+    <TextView
+        android:text="About Quiz Game"
+        android:fontFamily="@font/fonts"
+        android:textSize="50sp"
+        android:textColor="#fff"
+        android:id="@+id/tvAbout"
+        android:gravity="center"
+        android:layout_marginTop="32sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:padding="32sp"
+        android:orientation="vertical"
+        android:id="@+id/imgPaper"
+        android:layout_centerInParent="true"
+        android:background="@drawable/pappers"
+        android:layout_width="match_parent"
+        android:layout_height="350sp">
+
+        <TextView
+
+            android:text="Quiz Game is a game that can help you improve
+your recall, keep them engaged and strengthen understanding."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_marginTop="16sp"
+            android:textStyle="bold"
+            android:text="Developer team: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_marginTop="8sp"
+            android:text="- Le Anh Tu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_marginTop="8sp"
+            android:text="- Tran Dinh Huy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_marginTop="16sp"
+            android:textStyle="bold"
+            android:text="Social media: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_marginTop="16sp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:onClick="openTW"
+                android:src="@drawable/tw"
+                android:layout_width="80sp"
+                android:layout_height="80sp"/>
+            <ImageView
+                android:onClick="openGoogle"
+                android:src="@drawable/gg"
+                android:layout_width="70sp"
+                android:layout_height="80sp"/>
+            <ImageView
+                android:onClick="openIns"
+                android:src="@drawable/ins"
+                android:layout_width="80sp"
+                android:layout_height="80sp"/>
+            <ImageView
+                android:onClick="openFacebook"
+                android:src="@drawable/fb"
+                android:layout_width="80sp"
+                android:layout_height="80sp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:onClick="openMain"
+        android:fontFamily="@font/fonts"
+        android:background="@drawable/wood"
+        android:textSize="30sp"
+        android:textColor="#fff"
+        android:text="Back"
+        android:layout_marginTop="16sp"
+        android:layout_below="@id/imgPaper"
+        android:layout_width="match_parent"
+        android:layout_height="80sp"/>
+
+
+
+
+</RelativeLayout>
