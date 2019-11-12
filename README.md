@@ -9,16 +9,17 @@ Quiz Game is an app game that can also help children develop their social skills
 
 ## Screenshot
 <p align="center">
-  <img src="https://i.imgur.com/Nf7EsDq.png" width="250" title="main">
-  <img src="https://i.imgur.com/CH9z6nL.png" width="250" alt="accessibility text">
-  <img src="https://i.imgur.com/RX1Sirv.png" width="250" alt="accessibility text">
-  <img src="https://i.imgur.com/a1GclNY.jpg" width="250" alt="accessibility text">
+  <img src="https://i.imgur.com/Nf7EsDq.png" width="200" title="main">
+  <img src="https://i.imgur.com/CH9z6nL.png" width="200" alt="accessibility text">
+  <img src="https://i.imgur.com/RX1Sirv.png" width="200" alt="accessibility text">
+  <img src="https://i.imgur.com/a1GclNY.jpg" width="200" alt="accessibility text">
 </p>
 
 ## Contributing
- 1.Fork the Project
- 2.Edit code
- 3.Submit a pull request.
+ 1. Fork the Project
+ 2. Create a branch for your new feature
+ 3. Edit code
+ 4. Submit a pull request.
 
 All pull requests are welcome :sunglasses:
 
