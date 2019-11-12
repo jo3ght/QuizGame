@@ -1,4 +1,4 @@
-# About the Quiz Game :star:
+# About Quiz Game :star:
 Quiz Game is an app game that can also help children develop their social skills. Play Quiz Game can stimulate your imagination and problem-solving skills.
 
 ## Technologies
