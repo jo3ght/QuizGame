@@ -17,7 +17,7 @@ If you have any contribute to our project. Please contact to this email:
 ## License
 MIT License
 
-Copyright (c) [2019] [Anh Tu]
+Copyright (c) 2019 Anh Tu
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
