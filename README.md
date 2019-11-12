@@ -7,8 +7,12 @@ Quiz Game is an app game that can also help children develop their social skills
 * Java
 * XML
 
-## Layout
+## Screenshot
 ![alt text](https://i.wingur.com/eOTi8.png)
+![alt text](https://i.imgur.com/K8mSOPF.png)
+![alt text](https://i.imgur.com/iz6Hwue.png)
+![alt text](https://i.imgur.com/9r0G3tR.png)
+![alt text](https://i.imgur.com/XQjSIbs.png)
 
 ## Contributing
 If you have any contribute to our project. Please contact to this email:
