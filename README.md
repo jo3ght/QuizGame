@@ -8,9 +8,10 @@ Quiz Game is an app game that can also help children develop their social skills
 * XML
 
 ## Screenshot
-![alt text](https://i.imgur.com/Nf7EsDq.png)
-![alt text](https://i.imgur.com/CH9z6nL.png)
-![alt text](https://i.imgur.com/RX1Sirv.png)
+<p align="center">
+  <img src="https://i.imgur.com/Nf7EsDq.png" width="350" title="hover text">
+  <img src="https://i.imgur.com/CH9z6nL.png" width="350" alt="accessibility text">
+</p>
 
 
 ## Contributing
