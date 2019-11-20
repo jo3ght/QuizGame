@@ -21,7 +21,7 @@ public class AboutApp extends AppCompatActivity {
 
     public void openTW(View view) {
         Intent intent = new Intent (Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("http://twitter.com"));
+        intent.setData(Uri.parse("http://twitter.com/jo3ght"));
         startActivity(intent);
     }
 
@@ -33,13 +33,13 @@ public class AboutApp extends AppCompatActivity {
 
     public void openIns(View view) {
         Intent intent = new Intent (Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("http://instagram.com"));
+        intent.setData(Uri.parse("http://instagram.com/jo3ght"));
         startActivity(intent);
     }
 
     public void openFacebook(View view) {
         Intent intent = new Intent (Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("http://facebook.com"));
+        intent.setData(Uri.parse("http://facebook.com/jo3ght"));
         startActivity(intent);
     }
 }

@@ -13,6 +13,7 @@
         android:layout_width="450sp"
         android:layout_height="400sp"/>
     <TextView
+        android:textStyle="bold"
         android:layout_alignParentBottom="true"
         android:gravity="center_horizontal"
         android:text="Development by Team 4"

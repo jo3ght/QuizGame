@@ -11,7 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Rules"></activity>
+        <activity android:name=".Mode"></activity>
+        <activity
+            android:name=".ResultQuiz"
+            android:parentActivityName=".QuizActivity" />
+        <activity android:name=".Rules" />
         <activity android:name=".AboutApp" />
         <activity android:name=".SplashScreen">
             <intent-filter>
@@ -28,6 +32,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <service android:name=".MyService" />
     </application>
 
 </manifest>
