@@ -69,7 +69,7 @@
         android:onClick="playQuiz"
         android:layout_marginTop="32sp"
         android:layout_below="@+id/layoutRule"
-        android:text="Go"
+        android:text="Menu"
         android:textSize="35sp"
         android:textColor="#fff"
         android:fontFamily="@font/fonts"

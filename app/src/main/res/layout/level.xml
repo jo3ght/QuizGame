@@ -1,11 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:padding="16sp"
+    android:layout_height="300sp">
 
-    <androidx.appcompat.widget.AppCompatSpinner
+    <TextView
+        android:text="Choose Level"
+        android:textSize="30sp"
+        android:fontFamily="@font/gang"
+        android:textColor="#fff"
+        android:gravity="center"
+        android:background="#4CAF50"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Spinner
+        android:layout_marginTop="16sp"
         android:id="@+id/spinnerLevel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+    <Spinner
+        android:layout_marginTop="64sp"
+        android:id="@+id/spinner2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btnOkLevel"
+        android:layout_marginTop="32sp"
+        android:layout_gravity="center"
+        android:fontFamily="@font/gang"
+        android:textSize="30sp"
+        android:textColor="#fff"
+        android:text="Ok"
+        android:background="#4CAF50"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 
 </LinearLayout>

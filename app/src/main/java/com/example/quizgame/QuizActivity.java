@@ -79,14 +79,14 @@ public class QuizActivity extends AppCompatActivity {
         textColorDefaultCd = tvTimeQuiz.getTextColors();
 
         Intent intent = getIntent();
-        String level = intent.getStringExtra("level");
+        String level = intent.getStringExtra(MainActivity.EXTRA_LEVEL);
 
 
         tvLevel.setText("Level: "+ level);
 
 
         QuizDatabaseHelper quizDatabaseHelper = new QuizDatabaseHelper(this);
-        questionList = quizDatabaseHelper.getQuestions("Medium");
+        questionList = quizDatabaseHelper.getQuestions(level);
 
         questionTotal = questionList.size();
         Collections.shuffle(questionList);
@@ -172,15 +172,27 @@ public class QuizActivity extends AppCompatActivity {
         View view = layoutInflater.inflate(R.layout.result_dialog,null);
 
         Button button = view.findViewById(R.id.acceptButton);
-//        Button exit = view.findViewById(R.id.cancelButton);
+        Button exit = view.findViewById(R.id.cancelButton);
         TextView tvScore = view.findViewById(R.id.tvNumberScore);
 
-        tvScore.setText("Your Score " + score);
+        tvScore.setText("" + score);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+               finishQuiz();
+                startActivity(new Intent(QuizActivity.this,MainActivity.class));
+
+            }
+
+            private void openMain() {
                 finishQuiz();
+            }
+        });
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
 

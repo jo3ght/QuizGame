@@ -39,6 +39,7 @@ android:id="@+id/tgSound"       android:layout_marginRight="16sp"
      android:layout_width="wrap_content"
      android:layout_height="wrap_content"/>
     <TextView
+
         android:layout_marginTop="32sp"
         android:id="@+id/tvScore"
         android:layout_below="@+id/tvLogo"
@@ -85,7 +86,7 @@ android:id="@+id/tgSound"       android:layout_marginRight="16sp"
         android:layout_centerInParent="true"
         android:layout_below="@+id/btnAbout"
         android:id="@+id/btnSetting"
-        android:text="Level"
+        android:text="Rules"
         android:layout_width="250sp"
         android:layout_height="80sp"/>
     <Button

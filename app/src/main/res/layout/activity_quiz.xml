@@ -19,7 +19,7 @@
     <TextView
         android:id="@+id/tvQuizNumber"
         android:layout_below="@+id/tvScoreQuiz"
-        android:text="Question: 1/3"
+        android:text="Question: "
         android:textSize="20sp"
         android:textColor="#fff"
         android:fontFamily="sans-serif-black"
@@ -29,7 +29,7 @@
     <TextView
         android:id="@+id/tvLevel"
         android:layout_below="@+id/tvQuizNumber"
-        android:text="Question: 1/3"
+        android:text="Level: "
         android:textSize="20sp"
         android:textColor="#fff"
         android:fontFamily="sans-serif-black"

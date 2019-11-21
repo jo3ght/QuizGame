@@ -33,9 +33,13 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvHighScore;
     private static final int RQ_CODE = 1;
 
+    public static final String EXTRA_LEVEL = "level";
     private String getLevel;
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String KEY_HIGHSCORE = "keyHighScore";
+    private Spinner spinnerLevel;
+    private Spinner spinner2;
+    private Button btnOkLevel;
 
     
     private int highScore;
@@ -57,9 +61,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void openQuiz(View view) {
-        Intent intent = new Intent(MainActivity.this,QuizActivity.class);
-        intent.putExtra("level",getLevel);
-        startActivityForResult(intent,RQ_CODE);
+
+        chooseLevel();
+
+
+
+
+
 
     }
 
@@ -106,7 +114,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadHighscore() {
-
         SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         highScore = prefs.getInt(KEY_HIGHSCORE, 0);
         tvHighScore.setText(""+highScore);
@@ -123,19 +130,47 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-   /* public void openLevel(View view) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        View view1 = LayoutInflater.from(this).inflate(R.layout.level,null);
-        AppCompatSpinner spinnerLevel = view1.findViewById(R.id.spinner_Level);//day nay, nay quen cai view1
-        builder.setView(view1);
-        String [] levels = Question.getAllLevel();
-        Log.e("Levels",levels.length+"");
+   public void openLevel(View view) {
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,levels);
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
-        spinnerLevel.setAdapter(arrayAdapter);
-        AlertDialog alertDialog = builder.show();
 
-    //qua kia di
-    }*/
+        startActivity(new Intent(MainActivity.this,Rules.class));
+
+   }
+   private void chooseLevel(){
+       LayoutInflater layoutInflater = LayoutInflater.from(this);
+       View view1 = layoutInflater.inflate(R.layout.level,null);
+
+       spinnerLevel = view1.findViewById(R.id.spinnerLevel);
+       btnOkLevel = view1.findViewById(R.id.btnOkLevel);
+       String[] level = Question.getAllLevel();
+
+
+
+       ArrayAdapter<String> arrayAdapterLevel = new ArrayAdapter<String>(this,
+               android.R.layout.simple_spinner_item,level);
+
+
+       arrayAdapterLevel.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+       spinnerLevel.setAdapter(arrayAdapterLevel);
+
+
+
+
+
+       final AlertDialog alertDialog = new AlertDialog.Builder(this)
+               .setView(view1)
+               .create();
+       alertDialog.show();
+
+       btnOkLevel.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+
+               String level = spinnerLevel.getSelectedItem().toString();
+               Intent intent = new Intent(MainActivity.this,QuizActivity.class);
+               intent.putExtra(EXTRA_LEVEL,level);
+               startActivityForResult(intent,RQ_CODE);
+           }
+       });
+   }
 }

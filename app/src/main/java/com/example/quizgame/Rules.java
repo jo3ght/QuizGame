@@ -20,7 +20,7 @@ public class Rules extends AppCompatActivity {
     }
 
     public void playQuiz(View view) {
-        Intent intent = new Intent(Rules.this,QuizActivity.class);
+        Intent intent = new Intent(Rules.this,MainActivity.class);
        startActivity(intent);
 
     }

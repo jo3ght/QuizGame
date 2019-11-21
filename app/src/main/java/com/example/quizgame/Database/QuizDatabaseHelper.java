@@ -14,7 +14,7 @@ import java.util.List;
 public class QuizDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "QuizGame.db";
-    private static final int DATABASE_VER = 5;
+    private static final int DATABASE_VER = 6;
 
     private SQLiteDatabase db;
 
@@ -51,28 +51,28 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
     }
 
     private void fillQuestionToTable() {
-        Question q1 = new Question("Easy A is correct ",
-                "A","B","C","D",1,Question.LEVEL_EASY);
+        Question q1 = new Question("Easy: Which programming language for Android App",
+                "Java","PHP","HTML","Python",1,Question.LEVEL_EASY);
         addQuestion(q1);
 
-        Question q2 = new Question("Easy B is correct ",
-                "A","B","C","D",2,Question.LEVEL_EASY);
+        Question q2 = new Question("What's the name of Google app store",
+                "Facebook","CH-PLAY","App store","FPT",2,Question.LEVEL_EASY);
         addQuestion(q2);
 
-        Question q3 = new Question("M C is correct ",
+        Question q3 = new Question("Medium: C is correct ",
                 "A","B","C","D",3,Question.LEVEL_MEDIUM);
         addQuestion(q3);
 
-        Question q4 = new Question("M D is correct ",
+        Question q4 = new Question("Medium: D is correct ",
                 "A","B","C","D",4,Question.LEVEL_MEDIUM);
         addQuestion(q4);
 
-        Question q5 = new Question("H A is correct ",
-                "A","B","C","D",5,Question.LEVEL_HARD);
+        Question q5 = new Question("Hard mode: A is correct ",
+                "A","B","C","D",1,Question.LEVEL_HARD);
         addQuestion(q5);
 
-        Question q6 = new Question("H A is correct ",
-                "A","B","C","D",5,Question.LEVEL_HARD);
+        Question q6 = new Question("Hard mode: A is correct ",
+                "A","B","C","D",1,Question.LEVEL_HARD);
         addQuestion(q6);
 
     }

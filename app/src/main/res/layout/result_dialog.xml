@@ -5,35 +5,66 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:src="@drawable/cup"
+        android:layout_width="427dp"
+        android:layout_height="60dp"
+        android:background="#CDDC39"
+        android:src="@drawable/cup" />
+
+    <TextView
+        android:id="@+id/tvYourScore"
+        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your score"
+        android:textSize="40sp"
+        android:fontFamily="@font/fonts"
+        android:textStyle="bold"
+
         />
 
     <TextView
+        android:textColor="#F44336"
         android:id="@+id/tvNumberScore"
         android:layout_marginTop="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+        android:text="30"
+        android:textSize="60sp"
+        android:textStyle="bold"
 
         />
 
-    <Button
-        android:layout_marginTop="16dp"
+    <LinearLayout
+        android:layout_marginTop="16sp"
+        android:gravity="center"
+
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Accept"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:id="@+id/acceptButton"
-        />
-    <Button
-        android:layout_marginTop="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cancel"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:id="@+id/cancelButton"
-        />
+        android:layout_height="wrap_content">
+
+        <Button
+            android:textStyle="bold"
+            android:layout_margin="10sp"
+            android:background="@drawable/rounded_corner"
+            android:textColor="#fff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Menu"
+            android:textSize="25sp"
+            android:id="@+id/acceptButton"
+            />
+        <Button
+            android:textStyle="bold"
+            android:layout_margin="10sp"
+            android:background="@drawable/rounded_corner"
+            android:textSize="25sp"
+            android:textColor="#fff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Play"
+            android:id="@+id/cancelButton"
+            />
+    </LinearLayout>
+
 
 </LinearLayout>
