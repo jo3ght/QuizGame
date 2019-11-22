@@ -14,7 +14,7 @@ import com.example.quizgame.Database.Question;
 public class Mode extends AppCompatActivity {
 
     public Spinner spinnerLevel;
-
+    //ok
     public static final String EXTRA_LEVEL = "extraLevel";
 
     @Override
