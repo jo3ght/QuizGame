@@ -50,12 +50,12 @@
 
     <LinearLayout
         android:id="@+id/layoutQuestion"
-        android:layout_marginTop="36sp"
+        android:layout_marginTop="8sp"
         android:layout_below="@+id/tvQuizNumber"
-        android:background="@drawable/bgold"
-        android:padding="32sp"
+        android:background="@drawable/cykap"
+        android:padding="64sp"
         android:layout_width="wrap_content"
-        android:layout_height="190sp">
+        android:layout_height="250sp">
 
         <TextView
 
@@ -72,7 +72,6 @@
             android:fontFamily="sans-serif-black"
             android:layout_height="wrap_content"/>
     </LinearLayout>
-
 
 
 
