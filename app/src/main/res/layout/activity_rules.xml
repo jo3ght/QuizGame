@@ -22,7 +22,7 @@
 
     <LinearLayout
         android:id="@+id/layoutRule"
-        android:background="@drawable/bgold"
+        android:background="@drawable/pp"
         android:padding="32sp"
         android:layout_below="@+id/tvRules"
         android:orientation="vertical"
