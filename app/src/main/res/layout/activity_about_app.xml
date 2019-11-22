@@ -23,7 +23,7 @@
         android:orientation="vertical"
         android:id="@+id/imgPaper"
         android:layout_centerInParent="true"
-        android:background="@drawable/pappers"
+        android:background="@drawable/bgold"
         android:layout_width="match_parent"
         android:layout_height="350sp">
 

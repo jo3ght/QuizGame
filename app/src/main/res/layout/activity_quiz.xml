@@ -52,7 +52,7 @@
         android:id="@+id/layoutQuestion"
         android:layout_marginTop="36sp"
         android:layout_below="@+id/tvQuizNumber"
-        android:background="@drawable/pappers"
+        android:background="@drawable/bgold"
         android:padding="32sp"
         android:layout_width="wrap_content"
         android:layout_height="190sp">
