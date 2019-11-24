@@ -8,6 +8,8 @@
     android:padding="16sp"
     tools:context=".QuizActivity">
 
+
+
     <TextView
         android:id="@+id/tvScoreQuiz"
         android:text="Score:"
@@ -16,6 +18,8 @@
         android:fontFamily="sans-serif-black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
+
     <TextView
         android:id="@+id/tvQuizNumber"
         android:layout_below="@+id/tvScoreQuiz"
@@ -33,6 +37,18 @@
         android:textSize="20sp"
         android:textColor="#fff"
         android:fontFamily="sans-serif-black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tvCategory"
+        android:layout_below="@+id/tvTimeQuiz"
+        android:text="Category"
+        android:fontFamily="@font/fonts"
+        android:layout_centerInParent="true"
+        android:textStyle="bold"
+        android:textColor="#F44336"
+        android:textSize="22sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 

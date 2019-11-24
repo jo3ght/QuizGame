@@ -45,7 +45,7 @@ public class QuizActivity extends AppCompatActivity {
 
     private CountDownTimer countDownTimer;
     private long timeLeftInMillis;
-
+    private TextView tvCategory;
     private TextView tvLevel;
     private List<Question> questionList;
     private int questionCounter;
@@ -67,6 +67,7 @@ public class QuizActivity extends AppCompatActivity {
         tvScoreQuiz = findViewById(R.id.tvScoreQuiz);
         tvTimeQuiz = findViewById(R.id.tvTimeQuiz);
         tvQuizNumber = findViewById(R.id.tvQuizNumber);
+        tvCategory = findViewById(R.id.tvCategory);
         radioGroup = findViewById(R.id.radioGroup);
         radioButtonA = findViewById(R.id.radioButtonA);
         radioButtonB = findViewById(R.id.radioButtonB);
@@ -79,14 +80,17 @@ public class QuizActivity extends AppCompatActivity {
         textColorDefaultCd = tvTimeQuiz.getTextColors();
 
         Intent intent = getIntent();
+        int categoryID = intent.getIntExtra(MainActivity.EXTRA_ID_CATEGORY,0);
+        String categoryName = intent.getStringExtra(MainActivity.EXTRA_NAME_CATEGORY);
         String level = intent.getStringExtra(MainActivity.EXTRA_LEVEL);
 
 
         tvLevel.setText("Level: "+ level);
+        tvCategory.setText(categoryName);
 
 
-        QuizDatabaseHelper quizDatabaseHelper = new QuizDatabaseHelper(this);
-        questionList = quizDatabaseHelper.getQuestions(level);
+        QuizDatabaseHelper quizDatabaseHelper = QuizDatabaseHelper.getInstance(this);
+        questionList = quizDatabaseHelper.getQuestions(categoryID,level);
 
         questionTotal = questionList.size();
         Collections.shuffle(questionList);

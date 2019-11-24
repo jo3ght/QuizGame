@@ -6,6 +6,8 @@ public class Question {
     public static final String LEVEL_MEDIUM = "Medium";
     public static final String LEVEL_HARD = "Hard";
 
+    private int id;
+
     private String question;
     private String optionA;
     private String optionB;
@@ -13,12 +15,14 @@ public class Question {
     private String optionD;
     private int answerNr;
     private String level;
+    private int categoryID;
 
     public Question(){
 
     }
 
-    public Question(String question, String optionA, String optionB, String optionC, String optionD, int answerNr,String level) {
+    public Question(String question, String optionA, String optionB, String optionC, String optionD,
+                    int answerNr,String level,int categoryID) {
         this.question = question;
         this.optionA = optionA;
         this.optionB = optionB;
@@ -26,6 +30,15 @@ public class Question {
         this.optionD = optionD;
         this.answerNr = answerNr;
         this.level = level;
+        this.categoryID = categoryID;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getQuestion() {
@@ -82,6 +95,14 @@ public class Question {
 
     public void setLevel(String level) {
         this.level = level;
+    }
+
+    public int getCategoryID() {
+        return categoryID;
+    }
+
+    public void setCategoryID(int categoryID) {
+        this.categoryID = categoryID;
     }
 
     public static String[] getAllLevel(){

@@ -23,7 +23,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.example.quizgame.Database.Category;
 import com.example.quizgame.Database.Question;
+import com.example.quizgame.Database.QuizDatabaseHelper;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,11 +38,14 @@ public class MainActivity extends AppCompatActivity {
     private static final int RQ_CODE = 1;
 
     public static final String EXTRA_LEVEL = "level";
+    public static final String EXTRA_ID_CATEGORY = "extraCategoryID";
+    public static final String EXTRA_NAME_CATEGORY = "extraCategory";
+
     private String getLevel;
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String KEY_HIGHSCORE = "keyHighScore";
     private Spinner spinnerLevel;
-    private Spinner spinner2;
+    private Spinner spinnerCategory;
     private Button btnOkLevel;
 
     
@@ -52,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         //tgSound = findViewById(R.id.tgSound);
         tvHighScore = findViewById(R.id.tvScore);
 
+
         loadHighscore();
 
         mDialog = new Dialog(this);
@@ -63,11 +71,6 @@ public class MainActivity extends AppCompatActivity {
     public void openQuiz(View view) {
 
         chooseLevel();
-
-
-
-
-
 
     }
 
@@ -113,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     private void loadHighscore() {
         SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         highScore = prefs.getInt(KEY_HIGHSCORE, 0);
@@ -132,7 +136,6 @@ public class MainActivity extends AppCompatActivity {
 
    public void openLevel(View view) {
 
-
         startActivity(new Intent(MainActivity.this,Rules.class));
 
    }
@@ -141,19 +144,8 @@ public class MainActivity extends AppCompatActivity {
        View view1 = layoutInflater.inflate(R.layout.level,null);
 
        spinnerLevel = view1.findViewById(R.id.spinnerLevel);
+       spinnerCategory = view1.findViewById(R.id.spinnerCategory);
        btnOkLevel = view1.findViewById(R.id.btnOkLevel);
-       String[] level = Question.getAllLevel();
-
-
-
-       ArrayAdapter<String> arrayAdapterLevel = new ArrayAdapter<String>(this,
-               android.R.layout.simple_spinner_item,level);
-
-
-       arrayAdapterLevel.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-       spinnerLevel.setAdapter(arrayAdapterLevel);
-
-
 
 
 
@@ -162,12 +154,37 @@ public class MainActivity extends AppCompatActivity {
                .create();
        alertDialog.show();
 
+       String[] level = Question.getAllLevel();
+
+       ArrayAdapter<String> arrayAdapterLevel = new ArrayAdapter<String>(this,
+               android.R.layout.simple_spinner_item,level);
+
+
+       arrayAdapterLevel.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+       spinnerLevel.setAdapter(arrayAdapterLevel);
+
+       QuizDatabaseHelper databaseHelper = QuizDatabaseHelper.getInstance(this);
+       List<Category> categoryList = databaseHelper.getAllCategories();
+
+
+       ArrayAdapter<Category> arrayAdapterCategory = new ArrayAdapter<>(this,
+               android.R.layout.simple_spinner_item,categoryList);
+
+       arrayAdapterCategory.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+       spinnerCategory.setAdapter(arrayAdapterCategory);
+
        btnOkLevel.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
 
+               Category selectCategory = (Category) spinnerCategory.getSelectedItem();
+               int categoryID = selectCategory.getId();
+               String categoryName = selectCategory.getName();
+
                String level = spinnerLevel.getSelectedItem().toString();
                Intent intent = new Intent(MainActivity.this,QuizActivity.class);
+               intent.putExtra(EXTRA_ID_CATEGORY,categoryID);
+               intent.putExtra(EXTRA_NAME_CATEGORY,categoryName);
                intent.putExtra(EXTRA_LEVEL,level);
                startActivityForResult(intent,RQ_CODE);
            }
