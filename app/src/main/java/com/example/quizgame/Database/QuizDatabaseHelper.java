@@ -17,7 +17,7 @@ import java.util.List;
 public class QuizDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "QuizGame.db";
-    private static final int DATABASE_VER = 7;
+    private static final int DATABASE_VER = 8;
 
 
     private static  QuizDatabaseHelper instance;
@@ -143,6 +143,13 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
                 "Anh Tu","Anh Tu","Anh Tu","Anh Tu",
                 1,Question.LEVEL_EASY,8);
         addQuestion(q8);
+
+        Question q9 = new Question("What's your name?",
+                "Huy","PHP","HTML","Python",
+                1,Question.LEVEL_HARD,Category.MUSIC);
+        addQuestion(q9);
+
+
 
 
 

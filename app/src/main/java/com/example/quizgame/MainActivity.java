@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                System.exit(1);
+                finish();
             }
         });
         alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
        spinnerLevel = view1.findViewById(R.id.spinnerLevel);
        spinnerCategory = view1.findViewById(R.id.spinnerCategory);
        btnOkLevel = view1.findViewById(R.id.btnOkLevel);
-
+       Button btnCancel = view1.findViewById(R.id.btnCancel);
 
 
        final AlertDialog alertDialog = new AlertDialog.Builder(this)
@@ -187,6 +187,12 @@ public class MainActivity extends AppCompatActivity {
                intent.putExtra(EXTRA_NAME_CATEGORY,categoryName);
                intent.putExtra(EXTRA_LEVEL,level);
                startActivityForResult(intent,RQ_CODE);
+           }
+       });
+       btnCancel.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               alertDialog.cancel();
            }
        });
    }

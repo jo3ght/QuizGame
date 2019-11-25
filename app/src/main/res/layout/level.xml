@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:padding="16sp"
-    android:layout_height="300sp">
+    android:layout_height="400sp">
 
     <TextView
         android:text="Choose Level"
@@ -26,17 +26,39 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <Button
-        android:id="@+id/btnOkLevel"
-        android:layout_marginTop="32sp"
+    <LinearLayout
+        android:layout_marginTop="16sp"
         android:layout_gravity="center"
-        android:fontFamily="@font/gang"
-        android:textSize="30sp"
-        android:textColor="#fff"
-        android:text="Ok"
-        android:background="#4CAF50"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:gravity="center"
+            android:id="@+id/btnCancel"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:layout_margin="10sp"
+            android:textColor="#fff"
+            android:text="Cancel"
+            android:background="#F44336"
+            android:layout_width="160sp"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:gravity="center"
+            android:id="@+id/btnOkLevel"
+            android:layout_margin="10sp"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:textColor="#fff"
+            android:text="Ok"
+            android:background="#4CAF50"
+            android:layout_width="160sp"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
 
 
 </LinearLayout>
