@@ -13,7 +13,6 @@ public class ResultQuiz extends AppCompatActivity {
     private TextView tvResultScore;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,9 +22,9 @@ public class ResultQuiz extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        int scoreRS = intent.getIntExtra(QuizActivity.EXTRA_SCORES,0);
+        int scoreRS = intent.getIntExtra(QuizActivity.EXTRA_SCORES, 0);
 
-        tvResultScore.setText(""+scoreRS);
+        tvResultScore.setText("" + scoreRS);
 
     }
 

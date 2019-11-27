@@ -17,12 +17,12 @@ public class Question {
     private String level;
     private int categoryID;
 
-    public Question(){
+    public Question() {
 
     }
 
     public Question(String question, String optionA, String optionB, String optionC, String optionD,
-                    int answerNr,String level,int categoryID) {
+                    int answerNr, String level, int categoryID) {
         this.question = question;
         this.optionA = optionA;
         this.optionB = optionB;
@@ -105,7 +105,7 @@ public class Question {
         this.categoryID = categoryID;
     }
 
-    public static String[] getAllLevel(){
+    public static String[] getAllLevel() {
         return new String[]{
                 LEVEL_EASY,
                 LEVEL_MEDIUM,

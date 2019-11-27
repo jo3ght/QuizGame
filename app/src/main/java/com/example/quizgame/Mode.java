@@ -24,10 +24,10 @@ public class Mode extends AppCompatActivity {
         spinnerLevel = findViewById(R.id.spinner_Level);
 
 
-        String [] level = Question.getAllLevel();
+        String[] level = Question.getAllLevel();
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>
-                (this,android.R.layout.simple_spinner_item,level);
+                (this, android.R.layout.simple_spinner_item, level);
 
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerLevel.setAdapter(arrayAdapter);

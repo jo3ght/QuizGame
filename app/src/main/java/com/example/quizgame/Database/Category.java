@@ -11,11 +11,10 @@ public class Category {
     public static final int SCIENCE = 6;
 
 
-
     private int id;
     private String name;
 
-    public Category(){
+    public Category() {
 
     }
 

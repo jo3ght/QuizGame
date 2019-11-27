@@ -33,9 +33,9 @@ public class QuizActivity extends AppCompatActivity {
     public static final String EXTRA_SCORES = "extraScores";
     private static final long COUNT_DOWN = 30000;
 
-    private TextView tvQuestion,tvScoreQuiz,tvTimeQuiz,tvQuizNumber;
+    private TextView tvQuestion, tvScoreQuiz, tvTimeQuiz, tvQuizNumber;
     private RadioGroup radioGroup;
-    private RadioButton radioButtonA,radioButtonB,radioButtonC,radioButtonD;
+    private RadioButton radioButtonA, radioButtonB, radioButtonC, radioButtonD;
     private Button btnNext;
     private ColorStateList textColorDefaultRb;
 
@@ -80,17 +80,17 @@ public class QuizActivity extends AppCompatActivity {
         textColorDefaultCd = tvTimeQuiz.getTextColors();
 
         Intent intent = getIntent();
-        int categoryID = intent.getIntExtra(MainActivity.EXTRA_ID_CATEGORY,0);
+        int categoryID = intent.getIntExtra(MainActivity.EXTRA_ID_CATEGORY, 0);
         String categoryName = intent.getStringExtra(MainActivity.EXTRA_NAME_CATEGORY);
         String level = intent.getStringExtra(MainActivity.EXTRA_LEVEL);
 
 
-        tvLevel.setText("Level: "+ level);
+        tvLevel.setText("Level: " + level);
         tvCategory.setText(categoryName);
 
 
         QuizDatabaseHelper quizDatabaseHelper = QuizDatabaseHelper.getInstance(this);
-        questionList = quizDatabaseHelper.getQuestions(categoryID,level);
+        questionList = quizDatabaseHelper.getQuestions(categoryID, level);
 
         questionTotal = questionList.size();
         Collections.shuffle(questionList);
@@ -101,15 +101,13 @@ public class QuizActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!answered){
-                    if(radioButtonA.isChecked() || radioButtonB.isChecked() || radioButtonC.isChecked() || radioButtonD.isChecked()){
+                if (!answered) {
+                    if (radioButtonA.isChecked() || radioButtonB.isChecked() || radioButtonC.isChecked() || radioButtonD.isChecked()) {
                         checkAnswer();
+                    } else {
+                        Toast.makeText(QuizActivity.this, "Choose an answer first!", Toast.LENGTH_SHORT).show();
                     }
-                    else {
-                        Toast.makeText(QuizActivity.this,"Choose an answer first!",Toast.LENGTH_SHORT).show();
-                    }
-                }
-                else {
+                } else {
                     showNextQuestion();
                 }
             }
@@ -118,7 +116,7 @@ public class QuizActivity extends AppCompatActivity {
 
     }
 
-    private void showNextQuestion(){
+    private void showNextQuestion() {
         radioButtonA.setTextColor(textColorDefaultRb);
         radioButtonB.setTextColor(textColorDefaultRb);
         radioButtonC.setTextColor(textColorDefaultRb);
@@ -127,7 +125,7 @@ public class QuizActivity extends AppCompatActivity {
         radioGroup.clearCheck();
 
 
-        if(questionCounter < questionTotal){
+        if (questionCounter < questionTotal) {
             currentQuestion = questionList.get(questionCounter);
 
             tvQuestion.setText(currentQuestion.getQuestion());
@@ -137,7 +135,7 @@ public class QuizActivity extends AppCompatActivity {
             radioButtonD.setText(currentQuestion.getOptionD());
 
             questionCounter++;
-            tvQuizNumber.setText("Question: "+ questionCounter + "/" + questionTotal);
+            tvQuizNumber.setText("Question: " + questionCounter + "/" + questionTotal);
             answered = false;
 
             btnNext.setText("Next");
@@ -145,14 +143,14 @@ public class QuizActivity extends AppCompatActivity {
             timeLeftInMillis = COUNT_DOWN;
             startCountDown();
 
-        }else {
+        } else {
             showResult();
         }
 
     }
 
-    private void startCountDown(){
-        countDownTimer = new CountDownTimer(timeLeftInMillis,1000) {
+    private void startCountDown() {
+        countDownTimer = new CountDownTimer(timeLeftInMillis, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 timeLeftInMillis = millisUntilFinished;
@@ -173,7 +171,7 @@ public class QuizActivity extends AppCompatActivity {
 
     private void showResult() {
         LayoutInflater layoutInflater = LayoutInflater.from(this);
-        View view = layoutInflater.inflate(R.layout.result_dialog,null);
+        View view = layoutInflater.inflate(R.layout.result_dialog, null);
 
         Button button = view.findViewById(R.id.acceptButton);
         Button exit = view.findViewById(R.id.cancelButton);
@@ -184,8 +182,8 @@ public class QuizActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               finishQuiz();
-                startActivity(new Intent(QuizActivity.this,MainActivity.class));
+                finishQuiz();
+                startActivity(new Intent(QuizActivity.this, MainActivity.class));
 
             }
 
@@ -209,26 +207,25 @@ public class QuizActivity extends AppCompatActivity {
 
     }
 
-    private void updateTextTime(){
-        int minutes = (int)(timeLeftInMillis/1000)/60;
-        int seconds = (int)(timeLeftInMillis/1000)%60;
+    private void updateTextTime() {
+        int minutes = (int) (timeLeftInMillis / 1000) / 60;
+        int seconds = (int) (timeLeftInMillis / 1000) % 60;
 
 
-        String time = String.format(Locale.getDefault(),"%02d:%02d",minutes,seconds);
+        String time = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
 
 
         tvTimeQuiz.setText(time);
 
 
-        if(timeLeftInMillis < 5000){
+        if (timeLeftInMillis < 5000) {
             tvTimeQuiz.setTextColor(Color.RED);
-        }
-        else {
+        } else {
             tvTimeQuiz.setTextColor(Color.WHITE);
         }
     }
 
-    private void checkAnswer(){
+    private void checkAnswer() {
         answered = true;
 
         countDownTimer.cancel();
@@ -236,25 +233,25 @@ public class QuizActivity extends AppCompatActivity {
         int answerNr = radioGroup.indexOfChild(rbSelected) + 1;
 
 
-        if(answerNr == currentQuestion.getAnswerNr()){
-            score+=10;
+        if (answerNr == currentQuestion.getAnswerNr()) {
+            score += 10;
             tvScoreQuiz.setText("Score: " + score);
 
             Intent rsIntent = new Intent();
-            rsIntent.putExtra(EXTRA_SCORES,score);
-            setResult(RESULT_OK,rsIntent);
+            rsIntent.putExtra(EXTRA_SCORES, score);
+            setResult(RESULT_OK, rsIntent);
         }
         showAnswer();
 
     }
 
-    private void showAnswer(){
+    private void showAnswer() {
         radioButtonA.setTextColor(Color.RED);
         radioButtonB.setTextColor(Color.RED);
         radioButtonC.setTextColor(Color.RED);
         radioButtonD.setTextColor(Color.RED);
 
-        switch (currentQuestion.getAnswerNr()){
+        switch (currentQuestion.getAnswerNr()) {
             case 1:
                 radioButtonA.setTextColor(Color.GREEN);
                 break;
@@ -269,31 +266,30 @@ public class QuizActivity extends AppCompatActivity {
                 break;
         }
 
-        if(questionCounter < questionTotal){
+        if (questionCounter < questionTotal) {
             btnNext.setText("Next");
 
-        }else {
+        } else {
             btnNext.setText("Finish");
         }
 
 
-
     }
-    private void finishQuiz(){
+
+    private void finishQuiz() {
         Intent rsIntent = new Intent();
-        rsIntent.putExtra(EXTRA_SCORE,score);
-        setResult(RESULT_OK,rsIntent);
+        rsIntent.putExtra(EXTRA_SCORE, score);
+        setResult(RESULT_OK, rsIntent);
         finish();
     }
 
 
     @Override
     public void onBackPressed() {
-        if(backPressTime + 2000 > System.currentTimeMillis()){
+        if (backPressTime + 2000 > System.currentTimeMillis()) {
             finishQuiz();
-        }
-        else {
-            Toast.makeText(this,"Press back again to finish",Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Press back again to finish", Toast.LENGTH_SHORT).show();
         }
         backPressTime = System.currentTimeMillis();
     }
@@ -302,7 +298,7 @@ public class QuizActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-        if(countDownTimer != null){
+        if (countDownTimer != null) {
             countDownTimer.cancel();
         }
     }

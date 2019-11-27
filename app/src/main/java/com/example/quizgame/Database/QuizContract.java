@@ -4,11 +4,11 @@ import android.provider.BaseColumns;
 
 public final class QuizContract {
 
-    private QuizContract(){
+    private QuizContract() {
 
     }
 
-    public static class CategoryTable implements BaseColumns{
+    public static class CategoryTable implements BaseColumns {
         public static final String TABLE_NAME = "quiz_cate";
         public static final String COLUMN_NAME = "name";
     }

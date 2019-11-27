@@ -7,21 +7,28 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-public class Rules extends AppCompatActivity {
+import com.example.quizgame.MVP.RulePresenter;
+import com.example.quizgame.MVP.RuleView;
 
-
-
-
+public class Rules extends AppCompatActivity implements RuleView {
+    RulePresenter rulePresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rules);
+        rulePresenter = new RulePresenter(this);
     }
 
     public void playQuiz(View view) {
-        Intent intent = new Intent(Rules.this,MainActivity.class);
-       startActivity(intent);
+        rulePresenter.backMainfRule();
 
+    }
+
+    @Override
+    public void backMainfRule() {
+        Intent intent = new Intent(Rules.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

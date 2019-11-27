@@ -64,7 +64,7 @@ your recall, keep them engaged and strengthen understanding."
 
             <ImageView
                 android:onClick="openTW"
-                android:src="@drawable/tw"
+                android:src="@drawable/youtube"
                 android:layout_width="80sp"
                 android:layout_height="80sp"/>
             <ImageView

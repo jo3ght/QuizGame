@@ -20,13 +20,14 @@ public class MyService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if(mediaPlayer == null){
+        if (mediaPlayer == null) {
 
 
-             mediaPlayer =MediaPlayer.create(this,R.raw.sound);
-            mediaPlayer.start();}
+            mediaPlayer = MediaPlayer.create(this, R.raw.sound);
+            mediaPlayer.start();
+        }
 
-            return START_STICKY;
+        return START_STICKY;
     }
 
     @Override
