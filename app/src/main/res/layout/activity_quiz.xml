@@ -69,6 +69,7 @@
         android:layout_marginTop="8sp"
         android:layout_below="@+id/tvQuizNumber"
         android:background="@drawable/cykap"
+        android:gravity="center"
         android:padding="64sp"
         android:layout_width="wrap_content"
         android:layout_height="250sp">
@@ -76,7 +77,6 @@
         <TextView
 
             android:layout_below="@+id/tvQuizNumber"
-
             android:id="@+id/tvQuestion"
             android:text="This is a question that you have to answer for your game"
             android:layout_width="match_parent"
