@@ -5,10 +5,12 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.LayoutInflater;
@@ -160,8 +162,10 @@ public class MainActivity extends AppCompatActivity implements MainView {
         alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                onDestroy();
-                finish();
+                if(Build.VERSION.SDK_INT >= 21){
+                    finishAndRemoveTask();
+                }
+
             }
         });
         alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -186,7 +190,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
     public void openRule() {
         startActivity(new Intent(MainActivity.this, Rules.class));
         finish();
-
     }
 
     @Override
