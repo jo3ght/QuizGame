@@ -3,40 +3,30 @@ package com.example.quizgame;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatSpinner;
+import androidx.databinding.DataBindingUtil;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Base64;
-import android.util.Log;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import com.example.quizgame.Database.Category;
 import com.example.quizgame.Database.Question;
 import com.example.quizgame.Database.QuizDatabaseHelper;
 import com.example.quizgame.MVP.MainPresenter;
 import com.example.quizgame.MVP.MainView;
-import com.facebook.FacebookSdk;
+import com.example.quizgame.databinding.ActivityMainBinding;
 
-import java.security.MessageDigest;
 import java.util.List;
-import java.util.logging.Level;
 
 public class MainActivity extends AppCompatActivity implements MainView {
 
@@ -63,9 +53,22 @@ public class MainActivity extends AppCompatActivity implements MainView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
 
-        tvHighScore = findViewById(R.id.tvScore);
+
+        ActivityMainBinding binding =
+                DataBindingUtil.setContentView(this,R.layout.activity_main);
+
+        TextMenu textMenu = new TextMenu();
+
+        textMenu.setPlayQuiz("Play");
+        textMenu.setLogo("Quiz Game");
+        textMenu.setExit("Exit");
+        textMenu.setAbout("About");
+        textMenu.setHighScore("High Score");
+        textMenu.setRule("Rule");
+
+        binding.setMenu(textMenu);
 
         loadHighscore();
 
@@ -73,8 +76,9 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
         mainPresenter = new MainPresenter(this);
 
-    }
 
+
+    }
 
     public void openQuiz(View view) {
         chooseLevel();
@@ -106,7 +110,10 @@ public class MainActivity extends AppCompatActivity implements MainView {
     private void loadHighscore() {
         SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         highScore = prefs.getInt(KEY_HIGHSCORE, 0);
-        tvHighScore.setText("" + highScore);
+        TextMenu textMenu = new TextMenu();
+
+
+        textMenu.setBestScore(""+highScore);
     }
 
     private void updateHighScore(int newHighScore) {
@@ -125,6 +132,51 @@ public class MainActivity extends AppCompatActivity implements MainView {
     }
 
     private void chooseLevel() {
+        mainPresenter.level();
+    }
+
+    @Override
+    public void exitApp() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+
+        alertDialog.setTitle("Exit?");
+        alertDialog.setIcon(R.drawable.ic_android_black_24dp);
+        alertDialog.setMessage("Do you want to exit?");
+        alertDialog.setCancelable(false);
+        alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                onDestroy();
+                finish();
+            }
+        });
+        alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(MainActivity.this, "Cancel exit", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        AlertDialog alertDialog1 = alertDialog.create();
+        alertDialog1.show();
+
+    }
+
+    @Override
+    public void openAbout() {
+        startActivity(new Intent(MainActivity.this, AboutApp.class));
+        finish();
+    }
+
+    @Override
+    public void openRule() {
+        startActivity(new Intent(MainActivity.this, Rules.class));
+        finish();
+
+    }
+
+    @Override
+    public void choseLevel() {
         LayoutInflater layoutInflater = LayoutInflater.from(this);
         View view1 = layoutInflater.inflate(R.layout.level, null);
 
@@ -180,44 +232,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
                 alertDialog.cancel();
             }
         });
-    }
-
-    @Override
-    public void exitApp() {
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-
-        alertDialog.setTitle("Exit?");
-        alertDialog.setIcon(R.drawable.ic_android_black_24dp);
-        alertDialog.setMessage("Do you want to exit?");
-        alertDialog.setCancelable(false);
-        alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                finish();
-            }
-        });
-        alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(MainActivity.this, "Cancel exit", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        AlertDialog alertDialog1 = alertDialog.create();
-        alertDialog1.show();
 
     }
 
-    @Override
-    public void openAbout() {
-        startActivity(new Intent(MainActivity.this, AboutApp.class));
-        finish();
-    }
-
-    @Override
-    public void openRule() {
-        startActivity(new Intent(MainActivity.this, Rules.class));
-        finish();
-
-    }
 }

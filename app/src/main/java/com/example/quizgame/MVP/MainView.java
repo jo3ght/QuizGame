@@ -7,4 +7,6 @@ public interface MainView {
     void openAbout();
 
     void openRule();
+
+    void choseLevel();
 }

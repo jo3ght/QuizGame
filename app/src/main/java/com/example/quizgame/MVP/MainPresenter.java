@@ -19,5 +19,9 @@ public class MainPresenter {
         mainView.exitApp();
     }
 
+    public void level(){
+        mainView.choseLevel();
+    }
+
 
 }
