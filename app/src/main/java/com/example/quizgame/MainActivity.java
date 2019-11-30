@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     Dialog mDialog;
 
-    private Button tgSound;
+    private ImageView tgSound;
     private TextView tvHighScore;
     private static final int RQ_CODE = 1;
 
@@ -77,7 +78,20 @@ public class MainActivity extends AppCompatActivity implements MainView {
         mainPresenter = new MainPresenter(this);
 
 
-
+        tgSound = findViewById(R.id.tgSound);
+        final int[] mute = {0};
+        tgSound.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mute[0] ==0){
+                    tgSound.setImageResource(R.drawable.ic_volume_up_black_24dp);
+                    mute[0] =1;
+                }else {
+                    tgSound.setImageResource(R.drawable.ic_volume_off_black_24dp);
+                    mute[0] =0;
+                }
+            }
+        });
     }
 
     public void openQuiz(View view) {
