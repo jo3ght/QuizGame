@@ -187,14 +187,11 @@ public class QuizActivity extends AppCompatActivity {
 
             }
 
-            private void openMain() {
-                finishQuiz();
-            }
         });
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+               recreate();
             }
         });
 
@@ -234,7 +231,7 @@ public class QuizActivity extends AppCompatActivity {
 
 
         if (answerNr == currentQuestion.getAnswerNr()) {
-            score += 10;
+            score += 20;
             tvScoreQuiz.setText("Score: " + score);
 
             Intent rsIntent = new Intent();

@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
 
-
         ActivityMainBinding binding =
                 DataBindingUtil.setContentView(this,R.layout.activity_main);
 
@@ -78,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         mDialog = new Dialog(this);
 
         mainPresenter = new MainPresenter(this);
+
 
 
         tgSound = findViewById(R.id.tgSound);
@@ -127,9 +127,8 @@ public class MainActivity extends AppCompatActivity implements MainView {
         SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         highScore = prefs.getInt(KEY_HIGHSCORE, 0);
         TextMenu textMenu = new TextMenu();
-
-
         textMenu.setBestScore(""+highScore);
+
     }
 
     private void updateHighScore(int newHighScore) {
@@ -162,9 +161,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                if(Build.VERSION.SDK_INT >= 21){
-                    finishAndRemoveTask();
-                }
+               finishAffinity();
 
             }
         });
@@ -241,12 +238,15 @@ public class MainActivity extends AppCompatActivity implements MainView {
                 intent.putExtra(EXTRA_NAME_CATEGORY, categoryName);
                 intent.putExtra(EXTRA_LEVEL, level);
                 startActivityForResult(intent, RQ_CODE);
+                alertDialog.dismiss();
             }
         });
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 alertDialog.cancel();
+                alertDialog.dismiss();
+
             }
         });
 

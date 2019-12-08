@@ -15,7 +15,7 @@
         android:layout_marginTop="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your score"
+        android:text="Your Score"
         android:textSize="40sp"
         android:fontFamily="@font/fonts"
         android:textStyle="bold"
@@ -59,9 +59,9 @@
             android:background="@drawable/rounded_corner"
             android:textSize="25sp"
             android:textColor="#fff"
+            android:text="Play"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Play"
             android:id="@+id/cancelButton"
             />
     </LinearLayout>
