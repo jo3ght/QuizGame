@@ -22,7 +22,7 @@ public class AboutApp extends AppCompatActivity implements AboutView {
     }
 
     public void openMain(View view) {
-        aboutPresenter.backMain();
+        finish();
     }
 
     public void openTW(View view) {

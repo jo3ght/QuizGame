@@ -9,6 +9,7 @@ public class TextMenu {
         private String highScore;
         private String bestScore;
 
+
     public void setBestScore(String bestScore) {
         this.bestScore = bestScore;
     }
@@ -17,13 +18,15 @@ public class TextMenu {
 
         }
 
-        public TextMenu(String playQuiz, String about, String logo, String rule, String exit, String highScore) {
+        public TextMenu(String playQuiz, String about, String logo, String rule, String exit,
+                        String highScore,String bestScore) {
             this.playQuiz = playQuiz;
             this.about = about;
             this.logo = logo;
             this.rule = rule;
             this.exit = exit;
             this.highScore = highScore;
+            this.bestScore = bestScore;
         }
 
         public String getPlayQuiz() {
@@ -70,7 +73,11 @@ public class TextMenu {
             return highScore;
         }
 
-        public void setHighScore(String highScore) {
+    public String getBestScore() {
+        return bestScore;
+    }
+
+    public void setHighScore(String highScore) {
             this.highScore = highScore;
         }
     }

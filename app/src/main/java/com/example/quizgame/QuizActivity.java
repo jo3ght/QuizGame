@@ -183,8 +183,7 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finishQuiz();
-                startActivity(new Intent(QuizActivity.this, MainActivity.class));
-
+                finish();
             }
 
         });
@@ -277,7 +276,6 @@ public class QuizActivity extends AppCompatActivity {
         Intent rsIntent = new Intent();
         rsIntent.putExtra(EXTRA_SCORE, score);
         setResult(RESULT_OK, rsIntent);
-        finish();
     }
 
 

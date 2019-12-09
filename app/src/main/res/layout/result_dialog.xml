@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:gravity="center_horizontal"
     android:layout_height="match_parent">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_below="@+id/iconTop"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/animation_view2"
+        app:lottie_loop="true"
+        android:layout_width="match_parent"
+        android:layout_height="200sp"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/firework"/>
+
     <ImageView
+        android:id="@+id/iconTop"
         android:layout_width="427dp"
         android:layout_height="60dp"
         android:background="#CDDC39"
         android:src="@drawable/cup" />
 
+
     <TextView
+        android:layout_below="@+id/iconTop"
+        android:layout_centerInParent="true"
         android:id="@+id/tvYourScore"
-        android:layout_marginTop="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Your Score"
@@ -23,9 +37,12 @@
         />
 
     <TextView
+
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/tvYourScore"
         android:textColor="#F44336"
         android:id="@+id/tvNumberScore"
-        android:layout_marginTop="16dp"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="30"
@@ -35,7 +52,7 @@
         />
 
     <LinearLayout
-        android:layout_marginTop="16sp"
+        android:layout_below="@+id/tvNumberScore"
         android:gravity="center"
 
         android:orientation="horizontal"
@@ -64,7 +81,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/cancelButton"
             />
+
     </LinearLayout>
 
 
-</LinearLayout>
+</RelativeLayout>

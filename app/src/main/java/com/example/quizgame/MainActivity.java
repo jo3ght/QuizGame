@@ -10,6 +10,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -35,8 +36,10 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     Dialog mDialog;
 
+    MediaPlayer mediaPlayer;
+
     private ImageView tgSound;
-    private TextView tvHighScore;
+    private TextView tvScore;
     private static final int RQ_CODE = 1;
 
     public static final String EXTRA_LEVEL = "level";
@@ -48,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     private Spinner spinnerLevel;
     private Spinner spinnerCategory;
     private Button btnOkLevel;
+    private TextMenu textMenu;
     MainPresenter mainPresenter;
 
 
@@ -58,10 +62,18 @@ public class MainActivity extends AppCompatActivity implements MainView {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
 
+
+        if(mediaPlayer == null){
+            mediaPlayer = MediaPlayer.create(this,R.raw.sound);
+            mediaPlayer.setLooping(true);
+            mediaPlayer.start();
+        }
+
+
         ActivityMainBinding binding =
                 DataBindingUtil.setContentView(this,R.layout.activity_main);
 
-        TextMenu textMenu = new TextMenu();
+         textMenu = new TextMenu();
 
         textMenu.setPlayQuiz("Play");
         textMenu.setLogo("Quiz Game");
@@ -70,9 +82,12 @@ public class MainActivity extends AppCompatActivity implements MainView {
         textMenu.setHighScore("High Score");
         textMenu.setRule("Rule");
 
+        loadHighscore();
+
+        textMenu.setBestScore(""+highScore);
+
         binding.setMenu(textMenu);
 
-        loadHighscore();
 
         mDialog = new Dialog(this);
 
@@ -88,9 +103,15 @@ public class MainActivity extends AppCompatActivity implements MainView {
                 if(mute[0] ==0){
                     tgSound.setImageResource(R.drawable.ic_volume_up_black_24dp);
                     mute[0] =1;
+                    mediaPlayer.start();
+
                 }else {
                     tgSound.setImageResource(R.drawable.ic_volume_off_black_24dp);
                     mute[0] =0;
+                    if(mediaPlayer.isPlaying()){
+                        mediaPlayer.pause();
+                    }
+
                 }
             }
         });
@@ -124,17 +145,14 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
 
     private void loadHighscore() {
-        SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences
+                prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         highScore = prefs.getInt(KEY_HIGHSCORE, 0);
-        TextMenu textMenu = new TextMenu();
-        textMenu.setBestScore(""+highScore);
 
     }
 
     private void updateHighScore(int newHighScore) {
         highScore = newHighScore;
-        tvHighScore.setText("" + highScore);
-
         SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putInt(KEY_HIGHSCORE, highScore);
@@ -143,7 +161,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     public void openLevel(View view) {
         mainPresenter.rule();
-
     }
 
     private void chooseLevel() {
@@ -180,13 +197,11 @@ public class MainActivity extends AppCompatActivity implements MainView {
     @Override
     public void openAbout() {
         startActivity(new Intent(MainActivity.this, AboutApp.class));
-        finish();
     }
 
     @Override
     public void openRule() {
         startActivity(new Intent(MainActivity.this, Rules.class));
-        finish();
     }
 
     @Override
