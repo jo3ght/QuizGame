@@ -230,7 +230,7 @@ public class QuizActivity extends AppCompatActivity {
 
 
         if (answerNr == currentQuestion.getAnswerNr()) {
-            score += 20;
+            score += 10;
             tvScoreQuiz.setText("Score: " + score);
 
             Intent rsIntent = new Intent();
