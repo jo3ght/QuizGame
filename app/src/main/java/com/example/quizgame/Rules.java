@@ -22,13 +22,14 @@ public class Rules extends AppCompatActivity implements RuleView {
 
     public void playQuiz(View view) {
         rulePresenter.backMainfRule();
-
+//
     }
 
     @Override
     public void backMainfRule() {
-        Intent intent = new Intent(this,MainActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+
 
     }
 }
