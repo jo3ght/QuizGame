@@ -18,7 +18,7 @@ import java.util.List;
 public class QuizDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "QuizGame.db";
-    private static final int DATABASE_VER = 10;
+    private static final int DATABASE_VER = 11;
 
 
     private static QuizDatabaseHelper instance;
@@ -457,8 +457,160 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
         addQuestion(QTM5);
 
 
+        // TECHNOLOGY HARD
+
+        Question QTH1 = new Question("Who invented Java?    ",
+                "Anderson Berlus", "James A Gosling", "Mr Bean", "David Buck",
+                2, Question.LEVEL_HARD, Category.TECHNOLOGY);
+        addQuestion(QTH1);
+
+        Question QTH2 = new Question("Which of the following is hardware? ",
+                "Monitor", "Program", "Operating System", "Volleyball",
+                1, Question.LEVEL_HARD, Category.TECHNOLOGY);
+        addQuestion(QTH2);
+
+        Question QTH3 = new Question("Which company will be assembling iPhones in India in 2019 on behalf of Apple?",
+                "One Direction", "Foxconn in Tamil Nadu", "Ziggy Stardust", "Cyka Blyat",
+                2, Question.LEVEL_HARD, Category.TECHNOLOGY);
+        addQuestion(QTH3);
+
+        Question QTH4 = new Question("Which of the following is software?",
+                "Calvin Harris", "Keyboard", "Microsoft Word", "David",
+                3, Question.LEVEL_HARD, Category.TECHNOLOGY);
+        addQuestion(QTH4);
+
+        Question QTH5 = new Question("Longhorn was the code name of ?",
+                "Hard Drive", "Central Processing unit", "Database", "System Software",
+                2, Question.LEVEL_HARD, Category.TECHNOLOGY);
+        addQuestion(QTH5);
 
 
+
+
+        Question q10 = new Question("Which German Count invented the zeppelin??",
+                " Silesia", "Zeppelin", "Rote Baron", "Richthofen",
+                2, Question.LEVEL_EASY, Category.HISTORY);
+        addQuestion(q10);
+        Question q11 = new Question("Who was the first president of the USA???",
+                " John Adams", "Thomas Jefferson", "Andrew Jackson", "George Washington",
+                4, Question.LEVEL_EASY, Category.HISTORY);
+        addQuestion(q11);
+        Question q12 = new Question("Who was the second president of the United States?",
+                " John Adams", "Andrew Jackson", "William H. Harrison", "Franklin Pierce",
+                1, Question.LEVEL_EASY, Category.HISTORY);
+        addQuestion(q12);
+        Question q13 = new Question("How many women did Henry VIII have??",
+                " 1", "6", "4", "9",
+                2, Question.LEVEL_EASY, Category.HISTORY);
+        addQuestion(q13);
+        Question q14 = new Question("In which city was the Titanic built??",
+                " Manchester", "Belfast", "Liverpool", "Bristol",
+                2, Question.LEVEL_EASY, Category.HISTORY);
+        addQuestion(q14);
+
+        Question q15 = new Question("What was the name of Napoleon s first wife??",
+                " Marie Louise", "Eugenie", "Besty", "Josephine",
+                4, Question.LEVEL_MEDIUM, Category.HISTORY);
+        addQuestion(q15);
+        Question q16 = new Question("Which city became capital of West-Germany in 1949??",
+                " Bonn", "Berlin", "Hamburg", "Essen",
+                1, Question.LEVEL_MEDIUM, Category.HISTORY);
+        addQuestion(q16);
+        Question q17 = new Question("On which island was Napoleon born?",
+                " Corsica", "Ireland", "Jersey ", "Guernsey",
+                2, Question.LEVEL_MEDIUM, Category.HISTORY);
+        addQuestion(q17);
+        Question q18 = new Question("How many children did Queen Victoria have?",
+                " 8", "5", "4", "9",
+                4, Question.LEVEL_MEDIUM, Category.HISTORY);
+        addQuestion(q18);
+        Question q19 = new Question("Which war was ended by the signing the armistice on July 27 th, 1953?",
+                " The Korean War", "Vietnam war", "japan war", "china war",
+                1, Question.LEVEL_MEDIUM, Category.HISTORY);
+        addQuestion(q19);
+
+        Question q20 = new Question("Who was the first king of Belgium ?",
+                " Leopold I", "Albert I", "Leopold III", "Baudouin",
+                1, Question.LEVEL_HARD, Category.HISTORY);
+        addQuestion(q20);
+        Question q21 = new Question("What was the former name of New York?",
+                " Manhattan", "Queens", "New Amsterdam", " The Bronx",
+                3, Question.LEVEL_HARD, Category.HISTORY);
+        addQuestion(q21);
+        Question q22 = new Question("Which war was ended by the signing the armistice on July 27 th, 1953?",
+                " Marseille", "Lutetia", "Nice", "Nantes",
+                2, Question.LEVEL_HARD, Category.HISTORY);
+        addQuestion(q22);
+        Question q23 = new Question("tWhat was the Latin name of Paris in Roman times?",
+                " The Korean War", "Vietnam war", "japan war", "china war",
+                2, Question.LEVEL_HARD, Category.HISTORY);
+        addQuestion(q23);
+        Question q24 = new Question("Which city was the capital of Australia from 1901 to 1927",
+                " Perth", "Canberra", "Adelaide", "Melbourne",
+                4, Question.LEVEL_HARD, Category.HISTORY);
+        addQuestion(q24);
+
+
+        Question g1 = new Question("What color is mollusk blood?",
+                " Blue", "yellow", "green", "pink",
+                1, Question.LEVEL_HARD, Category.GAME);
+        addQuestion(g1);
+        Question g2 = new Question("What is the smallest bird?",
+                " parrots", "starling", "Colibri", "crested bird",
+                3, Question.LEVEL_HARD, Category.GAME);
+        addQuestion(g2);
+        Question g3 = new Question("What is the fastest land animal?",
+                " mouse", "Cat", "big", "Cheetah",
+                4, Question.LEVEL_HARD, Category.GAME);
+        addQuestion(g3);
+        Question g4 = new Question("What animal has three hearts?",
+                " Cat", "chicken", "big", "Octopus",
+                4, Question.LEVEL_HARD, Category.GAME);
+        addQuestion(g4);
+        Question g5 = new Question("What is the thinnest natural thread?",
+                " cotton", "Spider web", "silk", "thread",
+                2, Question.LEVEL_HARD, Category.GAME);
+        addQuestion(g5);
+        Question g6 = new Question("Which birds have scales on their wings?",
+                " Penguins", "Spider", "pig", "Tiger",
+                1, Question.LEVEL_MEDIUM, Category.GAME);
+        addQuestion(g6);
+        Question g7 = new Question("Which animal cleans its teeth after food?",
+                " Panther", "Spider", "Tiger", "Seal",
+                3, Question.LEVEL_MEDIUM, Category.GAME);
+        addQuestion(g7);
+        Question g8 = new Question("The largest snake on Earth.?",
+                " Anaconda", "Grand cobra", "South American python", "water snake",
+                1, Question.LEVEL_MEDIUM, Category.GAME);
+        addQuestion(g8);
+        Question g9 = new Question("What is the largest predator in the world?",
+                " Tiger", "Seal", "Panther", "Polar bear",
+                4, Question.LEVEL_MEDIUM, Category.GAME);
+        addQuestion(g9);
+        Question g10 = new Question("What is the largest butterfly in the world?",
+                " White witch", "Atlas moths", "silk", "thread",
+                2, Question.LEVEL_MEDIUM, Category.GAME);
+        addQuestion(g10);
+        Question g11 = new Question("The largest anthropoid ape?",
+                " Gorilla", "killer whales", "blue whale", "thread",
+                3, Question.LEVEL_EASY, Category.GAME);
+        addQuestion(g11);
+        Question g12 = new Question("The largest land mammal in the world.",
+                " hippo", "African elephant", "Rhino", "cow",
+                2, Question.LEVEL_EASY, Category.GAME);
+        addQuestion(g12);
+        Question g13 = new Question("Loài vượn người lớn nhất.",
+                " Gibbon", "Gorilla", "silk", "baboons",
+                2, Question.LEVEL_EASY, Category.GAME);
+        addQuestion(g13);
+        Question g14 = new Question("The rarest bird on Earth.",
+                " California condor", "Atlas moths", "Palila bird", "Hummingbirds",
+                1, Question.LEVEL_EASY, Category.GAME);
+        addQuestion(g14);
+        Question g15 = new Question("What is the largest butterfly in the world?",
+                " White witch", "Atlas moths", "silk", "thread",
+                2, Question.LEVEL_EASY, Category.GAME);
+        addQuestion(g15);
 
 
 
