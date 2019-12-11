@@ -80,6 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@id/radioGroup"
+            android:layout_marginTop="8sp"
             android:layout_below="@+id/tvQuizNumber"
             android:fontFamily="sans-serif-black"
             android:text="This is a question that you have to answer for your game"
