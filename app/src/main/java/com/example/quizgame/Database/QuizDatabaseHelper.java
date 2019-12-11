@@ -136,7 +136,6 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
         addQuestion(q6);
 
 
-
         //SCIENCE LEVEL EASY
 
         Question SCI1 = new Question("Which planet is nearest the sun?",
@@ -217,7 +216,6 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
                 "Apollo 11", "Apollo 12", "Cyka Blyat 91", "China",
                 1, Question.LEVEL_HARD, Category.SCIENCE);
         addQuestion(SCIH5);
-
 
 
         Question q7 = new Question("Earth is located in which galaxy?",
@@ -315,7 +313,6 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
                 "No", "Yes", "Can not", "Six players",
                 2, Question.LEVEL_HARD, Category.SPORT);
         addQuestion(QSH5);
-
 
 
         // MUSIC EASY
@@ -485,8 +482,6 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
         addQuestion(QTH5);
 
 
-
-
         Question q10 = new Question("Which German Count invented the zeppelin??",
                 " Silesia", "Zeppelin", "Rote Baron", "Richthofen",
                 2, Question.LEVEL_EASY, Category.HISTORY);
@@ -611,11 +606,6 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
                 " White witch", "Atlas moths", "silk", "thread",
                 2, Question.LEVEL_EASY, Category.GAME);
         addQuestion(g15);
-
-
-
-
-
 
 
     }

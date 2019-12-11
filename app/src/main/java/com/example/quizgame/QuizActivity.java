@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -56,7 +57,8 @@ public class QuizActivity extends AppCompatActivity {
     private boolean answered;
 
     private long backPressTime;
-
+    public static final String SHARED_PREFS = "sharedPrefs";
+    public static final String KEY_HIGHSCORE = "keyHighScore";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -184,13 +186,14 @@ public class QuizActivity extends AppCompatActivity {
             public void onClick(View v) {
                 finishQuiz();
                 finish();
+
             }
 
         });
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               recreate();
+                recreate();
             }
         });
 
@@ -232,10 +235,6 @@ public class QuizActivity extends AppCompatActivity {
         if (answerNr == currentQuestion.getAnswerNr()) {
             score += 10;
             tvScoreQuiz.setText("Score: " + score);
-
-            Intent rsIntent = new Intent();
-            rsIntent.putExtra(EXTRA_SCORES, score);
-            setResult(RESULT_OK, rsIntent);
         }
         showAnswer();
 
@@ -272,10 +271,25 @@ public class QuizActivity extends AppCompatActivity {
 
     }
 
+    private void updateHighScore() {
+
+        SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        int highScore = prefs.getInt(KEY_HIGHSCORE, 0);
+        if (score > highScore) {
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putInt(KEY_HIGHSCORE, score);
+            editor.apply();
+        }
+
+    }
+
+
     private void finishQuiz() {
-        Intent rsIntent = new Intent();
-        rsIntent.putExtra(EXTRA_SCORE, score);
-        setResult(RESULT_OK, rsIntent);
+        updateHighScore();
+        Intent rsIntent = new Intent(QuizActivity.this, MainActivity.class);
+
+
+        startActivity(rsIntent);
     }
 
 

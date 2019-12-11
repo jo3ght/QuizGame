@@ -63,17 +63,17 @@ public class MainActivity extends AppCompatActivity implements MainView {
         //setContentView(R.layout.activity_main);
 
 
-        if(mediaPlayer == null){
-            mediaPlayer = MediaPlayer.create(this,R.raw.sound);
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(this, R.raw.sound);
             mediaPlayer.setLooping(true);
             mediaPlayer.start();
         }
 
 
         ActivityMainBinding binding =
-                DataBindingUtil.setContentView(this,R.layout.activity_main);
+                DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-         textMenu = new TextMenu();
+        textMenu = new TextMenu();
 
         textMenu.setPlayQuiz("Play");
         textMenu.setLogo("Quiz Game");
@@ -84,7 +84,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
         loadHighscore();
 
-        textMenu.setBestScore(""+highScore);
 
         binding.setMenu(textMenu);
 
@@ -94,21 +93,20 @@ public class MainActivity extends AppCompatActivity implements MainView {
         mainPresenter = new MainPresenter(this);
 
 
-
         tgSound = findViewById(R.id.tgSound);
         final int[] mute = {0};
         tgSound.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mute[0] ==0){
+                if (mute[0] == 0) {
                     tgSound.setImageResource(R.drawable.ic_volume_up_black_24dp);
-                    mute[0] =1;
+                    mute[0] = 1;
                     mediaPlayer.start();
 
-                }else {
+                } else {
                     tgSound.setImageResource(R.drawable.ic_volume_off_black_24dp);
-                    mute[0] =0;
-                    if(mediaPlayer.isPlaying()){
+                    mute[0] = 0;
+                    if (mediaPlayer.isPlaying()) {
                         mediaPlayer.pause();
                     }
 
@@ -129,35 +127,15 @@ public class MainActivity extends AppCompatActivity implements MainView {
         mainPresenter.exit();
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == RQ_CODE) {
-            if (resultCode == RESULT_OK) {
-                int score = data.getIntExtra(QuizActivity.EXTRA_SCORE, 0);
-                if (score > highScore) {
-                    updateHighScore(score);
-                }
-            }
-        }
-    }
-
-
-    private void loadHighscore() {
+    public void loadHighscore() {
         SharedPreferences
                 prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         highScore = prefs.getInt(KEY_HIGHSCORE, 0);
+        textMenu.setBestScore("" + highScore);
 
     }
 
-    private void updateHighScore(int newHighScore) {
-        highScore = newHighScore;
-        SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putInt(KEY_HIGHSCORE, highScore);
-        editor.apply();
-    }
 
     public void openLevel(View view) {
         mainPresenter.rule();
@@ -178,7 +156,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-               finishAffinity();
+                finishAffinity();
 
             }
         });
