@@ -67,7 +67,7 @@
     <LinearLayout
         android:id="@+id/layoutQuestion"
         android:layout_width="wrap_content"
-        android:layout_height="200sp"
+        android:layout_height="160sp"
         android:layout_below="@+id/tvCategory"
         android:layout_marginTop="8dp"
         android:background="@drawable/oldpp"
@@ -138,14 +138,14 @@
 
     <Button
         android:id="@+id/btnNext"
-        android:background="@drawable/wood"
-        android:layout_marginTop="32sp"
-        android:textSize="30sp"
-        android:fontFamily="@font/fonts"
-        android:textColor="#ffff"
-        android:text="Next"
-        android:layout_below="@id/radioGroup"
         android:layout_width="match_parent"
-        android:layout_height="90sp"/>
+        android:layout_height="90sp"
+        android:layout_below="@id/radioGroup"
+        android:background="@drawable/wood"
+        android:layout_marginTop="8sp"
+        android:fontFamily="@font/fonts"
+        android:text="Next"
+        android:textColor="#ffff"
+        android:textSize="30sp" />
 
 </RelativeLayout>
