@@ -43,6 +43,8 @@ public class QuizActivity extends AppCompatActivity {
     private ColorStateList colorStateListDF;
     private ColorStateList textColorDefaultCd;
 
+    private AlertDialog alertDialog;
+
 
     private CountDownTimer countDownTimer;
     private long timeLeftInMillis;
@@ -198,7 +200,7 @@ public class QuizActivity extends AppCompatActivity {
         });
 
 
-        AlertDialog alertDialog = new AlertDialog.Builder(this)
+        alertDialog = new AlertDialog.Builder(this)
                 .setView(view)
                 .create();
         alertDialog.show();
@@ -287,8 +289,6 @@ public class QuizActivity extends AppCompatActivity {
     private void finishQuiz() {
         updateHighScore();
         Intent rsIntent = new Intent(QuizActivity.this, MainActivity.class);
-
-
         startActivity(rsIntent);
     }
 
@@ -297,6 +297,7 @@ public class QuizActivity extends AppCompatActivity {
     public void onBackPressed() {
         if (backPressTime + 2000 > System.currentTimeMillis()) {
             finishQuiz();
+            
         } else {
             Toast.makeText(this, "Press back again to finish", Toast.LENGTH_SHORT).show();
         }
@@ -306,6 +307,7 @@ public class QuizActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        alertDialog.dismiss();
 
         if (countDownTimer != null) {
             countDownTimer.cancel();

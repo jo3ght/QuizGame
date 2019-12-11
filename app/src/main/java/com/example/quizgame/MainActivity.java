@@ -10,6 +10,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
@@ -30,6 +31,7 @@ import com.example.quizgame.MVP.MainPresenter;
 import com.example.quizgame.MVP.MainView;
 import com.example.quizgame.databinding.ActivityMainBinding;
 
+import java.io.IOException;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements MainView {
@@ -63,13 +65,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         //setContentView(R.layout.activity_main);
 
 
-        if (mediaPlayer == null) {
-            mediaPlayer = MediaPlayer.create(this, R.raw.sound);
-            mediaPlayer.setLooping(true);
-            mediaPlayer.start();
-        }
-
-
+        mediaPlayer = MediaPlayer.create(this,R.raw.sound);
         ActivityMainBinding binding =
                 DataBindingUtil.setContentView(this, R.layout.activity_main);
 
@@ -103,10 +99,11 @@ public class MainActivity extends AppCompatActivity implements MainView {
                     mute[0] = 1;
                     mediaPlayer.start();
 
+
                 } else {
                     tgSound.setImageResource(R.drawable.ic_volume_off_black_24dp);
                     mute[0] = 0;
-                    if (mediaPlayer.isPlaying()) {
+                    if (mediaPlayer != null) {
                         mediaPlayer.pause();
                     }
 
@@ -182,6 +179,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         startActivity(new Intent(MainActivity.this, Rules.class));
     }
 
+
     @Override
     public void choseLevel() {
         LayoutInflater layoutInflater = LayoutInflater.from(this);
@@ -245,4 +243,11 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(mediaPlayer != null){
+            mediaPlayer.release();
+        }
+    }
 }

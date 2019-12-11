@@ -28,7 +28,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginTop="8sp"
             android:layout_marginRight="16sp"
-            android:background="@drawable/ic_volume_up_black_24dp"
+            android:background="@drawable/ic_volume_blur_24dp"
             android:textOff=""
             android:textOn="" />
 
