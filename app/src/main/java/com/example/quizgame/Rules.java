@@ -27,6 +27,7 @@ public class Rules extends AppCompatActivity implements RuleView {
 
     @Override
     public void backMainfRule() {
-        finish();
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
     }
 }

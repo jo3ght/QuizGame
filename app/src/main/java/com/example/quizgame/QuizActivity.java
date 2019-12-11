@@ -297,7 +297,7 @@ public class QuizActivity extends AppCompatActivity {
     public void onBackPressed() {
         if (backPressTime + 2000 > System.currentTimeMillis()) {
             finishQuiz();
-            
+
         } else {
             Toast.makeText(this, "Press back again to finish", Toast.LENGTH_SHORT).show();
         }

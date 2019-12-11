@@ -22,7 +22,8 @@ public class AboutApp extends AppCompatActivity implements AboutView {
     }
 
     public void openMain(View view) {
-        finish();
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
     }
 
     public void openTW(View view) {
