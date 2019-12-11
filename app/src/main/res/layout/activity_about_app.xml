@@ -59,7 +59,7 @@ your recall, keep them engaged and strengthen understanding."
         <LinearLayout
             android:layout_marginTop="32sp"
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
