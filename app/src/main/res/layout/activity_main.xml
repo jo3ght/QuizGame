@@ -33,6 +33,7 @@
             android:textOn="" />
 
         <TextView
+            android:gravity="center"
             android:id="@+id/tvLogo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,7 +55,7 @@
             android:textStyle="bold" />
 
         <TextView
-
+            android:gravity="center"
             android:id="@+id/tvScore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
