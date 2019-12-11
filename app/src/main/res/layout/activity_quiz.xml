@@ -69,21 +69,21 @@
         android:layout_width="wrap_content"
         android:layout_height="160sp"
         android:layout_below="@+id/tvCategory"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="8sp"
         android:background="@drawable/oldpp"
+
         android:gravity="center"
-        android:padding="64sp">
+        android:padding="24sp">
 
         <TextView
-
             android:id="@+id/tvQuestion"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_above="@id/radioGroup"
             android:layout_below="@+id/tvQuizNumber"
             android:fontFamily="sans-serif-black"
             android:text="This is a question that you have to answer for your game"
-
+            android:layout_centerInParent="true"
             android:textAlignment="center"
             android:textSize="15sp" />
     </LinearLayout>

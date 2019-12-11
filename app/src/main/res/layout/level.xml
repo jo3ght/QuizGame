@@ -27,10 +27,11 @@
         android:layout_height="wrap_content"/>
 
     <LinearLayout
+        android:gravity="center"
         android:layout_marginTop="16sp"
         android:layout_gravity="center"
         android:orientation="horizontal"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <Button
@@ -42,7 +43,7 @@
             android:textColor="#fff"
             android:text="Cancel"
             android:background="#F44336"
-            android:layout_width="160sp"
+            android:layout_width="150sp"
             android:layout_height="wrap_content"/>
 
         <Button
@@ -54,7 +55,7 @@
             android:textColor="#fff"
             android:text="Ok"
             android:background="#4CAF50"
-            android:layout_width="160sp"
+            android:layout_width="150sp"
             android:layout_height="wrap_content"/>
 
     </LinearLayout>
