@@ -142,7 +142,7 @@
         android:layout_height="90sp"
         android:layout_below="@id/radioGroup"
         android:background="@drawable/wood"
-        android:layout_marginTop="8sp"
+        android:layout_marginTop="16sp"
         android:fontFamily="@font/fonts"
         android:text="Next"
         android:textColor="#ffff"
