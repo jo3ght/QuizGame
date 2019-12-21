@@ -76,7 +76,6 @@ public class AboutApp extends AppCompatActivity implements AboutView {
 
     @Override
     public void backMain() {
-        startActivity(new Intent(AboutApp.this, MainActivity.class));
         finish();
 
     }

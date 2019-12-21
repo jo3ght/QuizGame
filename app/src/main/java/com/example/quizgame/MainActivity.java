@@ -64,8 +64,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
 
-
-        mediaPlayer = MediaPlayer.create(this,R.raw.sound);
         ActivityMainBinding binding =
                 DataBindingUtil.setContentView(this, R.layout.activity_main);
 
@@ -97,14 +95,12 @@ public class MainActivity extends AppCompatActivity implements MainView {
                 if (mute[0] == 0) {
                     tgSound.setImageResource(R.drawable.ic_volume_up_black_24dp);
                     mute[0] = 1;
-                    mediaPlayer.start();
 
 
                 } else {
                     tgSound.setImageResource(R.drawable.ic_volume_off_black_24dp);
                     mute[0] = 0;
                     if (mediaPlayer != null) {
-                        mediaPlayer.pause();
                     }
 
                 }

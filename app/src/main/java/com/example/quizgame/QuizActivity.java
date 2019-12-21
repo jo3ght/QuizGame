@@ -97,6 +97,8 @@ public class QuizActivity extends AppCompatActivity {
         questionList = quizDatabaseHelper.getQuestions(categoryID, level);
 
         questionTotal = questionList.size();
+
+        //Random Question
         Collections.shuffle(questionList);
 
         showNextQuestion();

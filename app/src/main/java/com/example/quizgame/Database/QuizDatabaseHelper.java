@@ -642,35 +642,6 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
         return categoryList;
     }
 
-/*    public List<Question> getAllQuestion() {
-        List<Question> questionList = new ArrayList<>();
-        db = getReadableDatabase();
-
-        Cursor cursor = db.rawQuery("SELECT * FROM " + QuestionTable.TABLE_NAME, null);
-
-        if (cursor.moveToFirst()) {
-            do {
-                Question question = new Question();
-                question.setId(cursor.getInt(cursor.getColumnIndex(QuestionTable._ID)));
-                question.setQuestion(cursor.getString(cursor.getColumnIndex(QuestionTable.COLUMN_QUESTION)));
-                question.setOptionA(cursor.getString(cursor.getColumnIndex(QuestionTable.COLUMN_OPTIONA)));
-                question.setOptionB(cursor.getString(cursor.getColumnIndex(QuestionTable.COLUMN_OPTIONB)));
-                question.setOptionC(cursor.getString(cursor.getColumnIndex(QuestionTable.COLUMN_OPTIONC)));
-                question.setOptionD(cursor.getString(cursor.getColumnIndex(QuestionTable.COLUMN_OPTIOND)));
-
-                question.setAnswerNr(cursor.getInt(cursor.getColumnIndex(QuestionTable.COLUMN_ANSWER_NR)));
-                question.setLevel(cursor.getString(cursor.getColumnIndex(QuestionTable.COLUMN_LEVEL)));
-
-                question.setCategoryID(cursor.getInt(cursor.getColumnIndex(QuestionTable.COLUMN_CATE_ID)));
-
-                questionList.add(question);
-
-            }
-            while (cursor.moveToNext());
-        }
-        cursor.close();
-        return questionList;
-    }*/
 
     public List<Question> getQuestions(int categoryID, String level) {
         List<Question> questionList = new ArrayList<>();
